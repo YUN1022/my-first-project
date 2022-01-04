@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <div id="app2"></div>
+    <div id="counter"></div>
+    <div id="app3">
+        <h3> 這是全域元件 </h3>
+        <Yinput></Yinput>
+    </div>
+    <div id="app4">
+        <h3> 這是區域元件 </h3>
+        <my-greeting></my-greeting>
+        <greeting-to-someone v-bind:selected-name="selected"></greeting-to-someone>
+        <div>
+            <select v-model="selected">
+                <option v-for="item in arr" v-bind:key="item"> {{ item }}</option>
+            </select>
+        </div>
+    </div>
+    <div id="app5">
+        <h3> 這裡呼叫API</h3>
+        <p> 來打招乎吧 {{greeting}}</p>
+        <button v-on:click="hello"> 取得打招呼用語 </button>
+        <h3> RESTful? </h3>
+        <div>
+            <p>get fib</p>
+            <input type="text" readonly v-model="ans">
+            <input type="text" v-model="n" v-on:keydown.enter="fib">
+        </div>
+        <div>
+            <br>
+            <p>post fib</p>
+            <input type="text" readonly v-model="ans2">
+            <input type="text" v-model="n2" v-on:keydown.enter="push_fib">
+        </div>
+        <div>
+            <br>
+            <p>put fib</p>
+            <input type="text" readonly v-model="ans3">
+            <input type="text" v-model="n3" v-on:keydown.enter="put_fib">
+        </div>
+        <div>
+            <br>
+            <p>delete fib</p>
+            <input type="text" readonly v-model="ans4">
+            <input type="text" v-model="n4" v-on:keydown.enter="delete_fib">
+        </div>
+    </div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
